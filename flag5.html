@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Mystery Box</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎁 Welcome to The Mystery Box! 🎁</h1>
+    <p><i>"Unravel the logic, unlock the flag! 🕵️‍♀️🚩"</i></p>
+  </header>
+
+  <main>
+    <!-- Level 5 -->
+    <div class="guess-box">
+      <h2>🧠 Final Level 5: Reverse Logic!</h2>
+      <form onsubmit="checkLevel5(); return false;">
+        <label for="guess5">💡 What will be the output of this Python code?</label>
+        <pre>
+def check(flag):
+    return flag[::-1] == "5galf"
+
+print(check("flag5"))
+        </pre>
+        <input type="text" id="guess5" name="guess5" placeholder="Enter your answer exactly..." />
+        <br>
+        <input type="submit" value="Unlock Final Flag!" />
+      </form>
+      <div id="reveal5" class="reveal-box">
+        <h3>🏁 Final Flag Box</h3>
+        <p id="message5">🎉 It's a surprise! 🎉</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function checkLevel5() {
+      const userGuess5 = document.getElementById("guess5").value.trim().toLowerCase();
+      const reveal5 = document.getElementById("reveal5");
+      const message5 = document.getElementById("message5");
+
+      reveal5.style.display = "block";
+
+      if (userGuess5 === "true") {
+        message5.innerHTML = `🎊 You cracked it all! FINAL FLAG{reversed_mastermind} 🏆🎁`;
+      } else {
+        message5.innerHTML = `😅 "<b>${userGuess5}</b>" isn't the final key. Think about the reversal!`;
+      }
+    }
+  </script>
+</body>
+</html>

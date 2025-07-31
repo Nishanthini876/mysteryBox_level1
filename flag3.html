@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Mystery Box</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎁 Welcome to The Mystery Box! 🎁</h1>
+    <p><i>"Unravel the logic, unlock the flag! 🕵️‍♀️🚩"</i></p>
+  </header>
+
+  <main>
+    <!-- Level 3 -->
+    <div class="guess-box">
+      <h2>🧠 Level 3: Loop Logic</h2>
+      <form onsubmit="checkLevel3(); return false;">
+        <label for="guess3">💡 What will be the output of this Python code?</label>
+        <pre>
+total = 0
+for i in range(1, 5):
+    total += i * i
+print(total)</pre>
+        <input type="text" id="guess3" name="guess3" placeholder="Enter your answer exactly..." />
+        <br>
+        <input type="submit" value="Submit Level 3" />
+      </form>
+      <div id="reveal3" class="reveal-box">
+        <h3>🎊 Flag Box 3</h3>
+        <p id="message3">🎉 It's a surprise! 🎉</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function checkLevel3() {
+      const userGuess3 = document.getElementById("guess3").value.trim();
+      const reveal3 = document.getElementById("reveal3");
+      const message3 = document.getElementById("message3");
+
+      reveal3.style.display = "block";
+
+      if (userGuess3 === "30") {
+        message3.innerHTML = `🎯 Correct! FLAG{loop_logic_cracked} 🧠 <a href="flag4.html" style="color:#ffd700;">🚩</a>`;
+      } else {
+        message3.innerHTML = `😅 "<b>${userGuess3}</b>" is not correct. Try again!`;
+      }
+    }
+  </script>
+</body>
+</html>

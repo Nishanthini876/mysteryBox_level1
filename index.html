@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Mystery Box</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎁 Welcome to The Mystery Box! 🎁</h1>
+    <p>"Unravel the logic, unlock the flag! 🕵️‍♀️🚩"</p>
+  </header>
+
+  <main>
+    <div class="guess-box">
+      <h2>Ready to Crack the Mystery?</h2>
+      <form onsubmit="revealMessage(); return false;">
+        <label for="guess">Level 1: Crack This Python Mystery 🧠</label>
+        <h4>Question:</h4>
+        <p>Reverse engineering time! What will be the output of the following Python code?</p>
+        <div style="background-color: black; color: white; padding: 10px; border-radius: 5px;">
+          x = "MysteryBox"<br>
+          print(x[::-1])
+        </div>
+        <br>
+        <input type="text" id="guess" name="guess" placeholder="Enter your answer exactly..." />
+        <br>
+        <input type="submit" value="Submit Your Guess" />
+      </form>
+    </div>
+
+    <div id="reveal" class="reveal-box">
+      <h3>What's inside the box?</h3>
+      <p id="message">🎉 It's a surprise! 🎉</p>
+    </div>
+  </main>
+
+  <script>
+    function revealMessage() {
+      const userGuess = document.getElementById("guess").value.trim(); // removed .toLowerCase()
+      const revealSection = document.getElementById("reveal");
+      const message = document.getElementById("message");
+
+      revealSection.style.display = "block";
+
+   if (userGuess === "xoByretsyM") {
+  message.innerHTML = `🎉 Well done, Codebreaker! FLAG{level1_success} 🧠 
+  <a href="flag2.html" style="color:#ffd700; text-decoration:none;">🚩</a>`;
+} else {
+   message2.textContent = `😅 "${userGuess2}" isn't the correct output. Try again!`;
+}
+
+    }
+  </script>
+</body>
+</html>

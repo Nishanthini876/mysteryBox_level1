@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Mystery Box</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎁 Welcome to The Mystery Box! 🎁</h1>
+    <p><i>"Unravel the logic, unlock the flag! 🕵️‍♀️🚩"</i></p>
+  </header>
+
+  <main>
+    <!-- Level 2 (Easy version) -->
+    <div class="guess-box">
+      <h2>🔐 Level 2: Count the Mystery!</h2>
+      <form onsubmit="checkLevel2(); return false;">
+        <label for="guess2">💡 What will be the output of this Python code?</label>
+        <pre>
+word = "Mystery"
+print(len(word))</pre>
+        <input type="text" id="guess2" name="guess2" placeholder="Enter your answer exactly..." />
+        <br>
+        <input type="submit" value="Submit Level 2" />
+      </form>
+      <div id="reveal2" class="reveal-box">
+        <h3>🔓 Flag Box 2</h3>
+        <p id="message2">🎉 It's a surprise! 🎉</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function checkLevel2() {
+      const userGuess2 = document.getElementById("guess2").value.trim();
+      const reveal2 = document.getElementById("reveal2");
+      const message2 = document.getElementById("message2");
+
+      reveal2.style.display = "block";
+
+      if (userGuess2 === "7") {
+        message2.innerHTML = `🎯 Great job! FLAG{length_unlocked} ✨ <a href="flag3.html" style="color:#ffd700;">🚩</a>`;
+      } else {
+        message2.innerHTML = `😅 "<b>${userGuess2}</b>" isn't the correct output. Try again!`;
+      }
+    }
+  </script>
+</body>
+</html>

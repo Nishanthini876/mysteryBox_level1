@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Mystery Box</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎁 Welcome to The Mystery Box! 🎁</h1>
+    <p><i>"Unravel the logic, unlock the flag! 🕵️‍♀️🚩"</i></p>
+  </header>
+
+  <main>
+    <!-- Level 4 -->
+    <div class="guess-box">
+      <h2>🧠 Level 4: Encrypted Characters</h2>
+      <form onsubmit="checkLevel4(); return false;">
+        <label for="guess4">💡 What will be the output of this Python code?</label>
+        <pre>
+s = "code"
+res = ""
+for i in s:
+    res += chr(ord(i) + 2)
+print(res)
+        </pre>
+        <input type="text" id="guess4" name="guess4" placeholder="Enter your answer exactly..." />
+        <br>
+        <input type="submit" value="Submit Level 4" />
+      </form>
+      <div id="reveal4" class="reveal-box">
+        <h3>🎊 Flag Box 4</h3>
+        <p id="message4">🎉 It's a surprise! 🎉</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function checkLevel4() {
+      const userGuess4 = document.getElementById("guess4").value.trim().toLowerCase();
+      const reveal4 = document.getElementById("reveal4");
+      const message4 = document.getElementById("message4");
+
+      reveal4.style.display = "block";
+
+      if (userGuess4 === "eqfg") {
+        message4.innerHTML = `🎯 Brilliant! FLAG{encrypted_chars} 🔐 <a href="flag5.html" style="color:#ffd700;">🚩</a>`;
+      } else {
+        message4.innerHTML = `😅 "<b>${userGuess4}</b>" isn't correct. Try decoding again!`;
+      }
+    }
+  </script>
+</body>
+</html>
